@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { saveSnapshot, loadSnapshots, isSupabaseReady } from '../services/supabase';
 
 /**
  * History Store — зберігає щоденні snapshots портфеля для графіків P&L.
@@ -8,17 +9,29 @@ import { persist } from 'zustand/middleware';
 export const useHistoryStore = create(
   persist(
     (set, get) => ({
-      // Daily portfolio value snapshots: [{ date, value, cash, positions }]
       snapshots: [],
-      // Benchmark data: { SPY: [{ date, price }], VT: [{ date, price }] }
       benchmarks: {},
-      // Initial portfolio value for % calculation
       initialValue: 100000,
+      _hydrated: false,
+
+      hydrateFromSupabase: async () => {
+        if (!isSupabaseReady() || get()._hydrated) return;
+        try {
+          const snapshots = await loadSnapshots();
+          if (snapshots && snapshots.length > 0) {
+            set({ snapshots, _hydrated: true });
+          } else {
+            set({ _hydrated: true });
+          }
+        } catch (e) {
+          console.warn('Supabase history hydrate error:', e);
+          set({ _hydrated: true });
+        }
+      },
 
       addSnapshot: (snapshot) =>
         set((state) => {
           const today = new Date().toISOString().split('T')[0];
-          // Replace if same date, otherwise append
           const existing = state.snapshots.findIndex((s) => s.date === today);
           const newSnapshots = [...state.snapshots];
           const entry = { ...snapshot, date: today };
@@ -27,6 +40,7 @@ export const useHistoryStore = create(
           } else {
             newSnapshots.push(entry);
           }
+          saveSnapshot(entry);
           return { snapshots: newSnapshots };
         }),
 

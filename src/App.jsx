@@ -10,9 +10,12 @@ import ActivityFeed from './components/ActivityFeed';
 import { useHistoryStore } from './store/historyStore';
 import { usePortfolioStore } from './store/portfolioStore';
 import { useConvictionStore } from './store/convictionStore';
+import { useReportsStore } from './store/reportsStore';
+import { useAdvisorStore } from './store/advisorStore';
 import { fetchCryptoPrices } from './services/coinGecko';
 import { fetchStockPrices } from './services/yahooFinance';
 import { suggestRebalance } from './services/convictionEngine';
+import { isSupabaseReady } from './services/supabase';
 
 function ErrorBoundaryFallback({ error, onReset }) {
   return (
@@ -111,6 +114,17 @@ export default function App() {
     const newAlerts = suggestRebalance(positions, convictionAssets);
     setAlerts(newAlerts);
   }, [positions, convictionAssets, prices]);
+
+  // Hydrate all stores from Supabase on first load
+  useEffect(() => {
+    if (isSupabaseReady()) {
+      usePortfolioStore.getState().hydrateFromSupabase();
+      useConvictionStore.getState().hydrateFromSupabase();
+      useReportsStore.getState().hydrateFromSupabase();
+      useHistoryStore.getState().hydrateFromSupabase();
+      useAdvisorStore.getState().hydrateFromSupabase();
+    }
+  }, []);
 
   useEffect(() => {
     fetchPrices();
