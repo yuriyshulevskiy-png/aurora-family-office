@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Family Office — 5 Layout Concepts</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; background: #f6f8fa; }
+  .mono { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+  .concept { display: none; }
+  .concept.active { display: block; }
+  .tab-btn.active { background: #635bff; color: white; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Tab selector -->
+<div class="sticky top-0 z-50 bg-white border-b border-gray-200 px-6 py-3">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-6 h-6 rounded bg-[#635bff] flex items-center justify-center text-white text-[10px] font-bold">AI</div>
+      <span class="text-sm font-semibold text-gray-900">5 Layout Concepts</span>
+    </div>
+    <div class="flex gap-2">
+      <button onclick="show(0)" class="tab-btn active px-3 py-1.5 text-xs rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">1. Stripe Master-Detail</button>
+      <button onclick="show(1)" class="tab-btn px-3 py-1.5 text-xs rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">2. Command Center</button>
+      <button onclick="show(2)" class="tab-btn px-3 py-1.5 text-xs rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">3. Activity Timeline</button>
+      <button onclick="show(3)" class="tab-btn px-3 py-1.5 text-xs rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">4. Bento Grid</button>
+      <button onclick="show(4)" class="tab-btn px-3 py-1.5 text-xs rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">5. AI-First Chat</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 1. STRIPE MASTER-DETAIL ===== -->
+<div id="c0" class="concept active">
+  <div class="max-w-[1440px] mx-auto p-4">
+    <div class="mb-3">
+      <h2 class="text-sm font-semibold text-gray-900">1. Stripe Master-Detail</h2>
+      <p class="text-xs text-gray-500">Як Stripe Customer page: зліва — деталі портфеля, справа — активність. Позиції клікабельні, розкриваються в деталі.</p>
+    </div>
+    <div class="rounded-lg overflow-hidden border border-gray-200 bg-[#f6f8fa]" style="height:620px">
+      <div class="flex h-full">
+        <!-- Sidebar -->
+        <div class="w-48 bg-white border-r border-gray-200 flex flex-col shrink-0">
+          <div class="px-4 py-3 border-b border-gray-200"><div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-[#635bff] flex items-center justify-center text-white text-[9px] font-bold">AI</div><span class="text-xs font-semibold text-gray-900">Family Office</span></div></div>
+          <nav class="flex-1 py-2 px-2 text-xs">
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-[#f0efff] text-[#635bff] font-medium">📊 Портфель</a>
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-gray-500 hover:bg-gray-50 mt-0.5">🧠 Радник AI</a>
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-gray-500 hover:bg-gray-50 mt-0.5">📈 P&L</a>
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-gray-500 hover:bg-gray-50 mt-0.5">🎯 Тезіси</a>
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-gray-500 hover:bg-gray-50 mt-0.5">📄 Звіти</a>
+          </nav>
+        </div>
+
+        <!-- Main: Two columns -->
+        <div class="flex-1 flex overflow-hidden">
+          <!-- Left: Portfolio details -->
+          <div class="flex-1 overflow-auto border-r border-gray-200 bg-white">
+            <!-- Portfolio header like Stripe customer header -->
+            <div class="px-6 py-5 border-b border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Мій портфель</div>
+              <div class="text-xs text-gray-500 mt-0.5">2 позиції · Створено 28 Бер 2026</div>
+              <div class="flex gap-6 mt-3">
+                <div><div class="text-[10px] text-gray-400 uppercase tracking-wide">Вартість</div><div class="text-xl font-semibold text-gray-900 mono">$100,000</div></div>
+                <div><div class="text-[10px] text-gray-400 uppercase tracking-wide">Інвестовано</div><div class="text-sm text-gray-900 mono">$36,526</div></div>
+                <div><div class="text-[10px] text-gray-400 uppercase tracking-wide">Кеш</div><div class="text-sm text-gray-900 mono">$63,475</div></div>
+                <div><div class="text-[10px] text-gray-400 uppercase tracking-wide">P&L</div><div class="text-sm text-green-600 mono">+$115.50</div></div>
+              </div>
+            </div>
+
+            <!-- Positions section (like Stripe Subscriptions) -->
+            <div class="px-6 py-4">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-sm font-semibold text-gray-900">Позиції</span>
+                <span class="text-xs text-[#635bff] cursor-pointer hover:underline">View all</span>
+              </div>
+
+              <!-- Position row like Stripe subscription row -->
+              <div class="border border-gray-200 rounded-md mb-2">
+                <div class="px-4 py-3 flex items-center gap-4">
+                  <div class="w-8 h-8 rounded-md bg-blue-50 flex items-center justify-center text-blue-600 text-xs font-semibold">MS</div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2"><span class="text-sm font-medium text-gray-900">Microsoft</span><span class="text-[10px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded-full font-medium">Active</span></div>
+                    <div class="text-xs text-gray-500">70 шт @ $347.52 · Куплено 27 Бер</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-sm mono font-medium text-gray-900">$24,926</div>
+                    <div class="text-xs mono text-green-600">+$299.60</div>
+                  </div>
+                  <span class="text-gray-300">›</span>
+                </div>
+              </div>
+
+              <div class="border border-gray-200 rounded-md mb-2">
+                <div class="px-4 py-3 flex items-center gap-4">
+                  <div class="w-8 h-8 rounded-md bg-green-50 flex items-center justify-center text-green-600 text-xs font-semibold">BN</div>
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2"><span class="text-sm font-medium text-gray-900">Vanguard Bond ETF</span><span class="text-[10px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded-full font-medium">Active</span></div>
+                    <div class="text-xs text-gray-500">158 шт @ $73.11 · Куплено 27 Бер</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-sm mono font-medium text-gray-900">$11,551</div>
+                    <div class="text-xs mono text-gray-400">$0.00</div>
+                  </div>
+                  <span class="text-gray-300">›</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conviction section (like Stripe Payments) -->
+            <div class="px-6 py-4 border-t border-gray-100">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-sm font-semibold text-gray-900">Conviction Map</span>
+                <span class="text-xs text-[#635bff] cursor-pointer hover:underline">View all</span>
+              </div>
+              <table class="w-full text-xs">
+                <thead><tr class="text-[10px] text-gray-400 uppercase tracking-wide border-b border-gray-100">
+                  <th class="text-left py-1.5 font-medium">Тікер</th><th class="text-left py-1.5 font-medium">Напрямок</th><th class="text-right py-1.5 font-medium">Score</th><th class="text-right py-1.5 font-medium">Тренд</th>
+                </tr></thead>
+                <tbody>
+                  <tr class="border-b border-gray-50"><td class="py-2 font-medium text-gray-900 mono">MSFT</td><td><span class="text-[10px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded-full">Bullish</span></td><td class="text-right mono text-gray-900">78</td><td class="text-right text-green-600">↑ rising</td></tr>
+                  <tr class="border-b border-gray-50"><td class="py-2 font-medium text-gray-900 mono">BND</td><td><span class="text-[10px] bg-yellow-50 text-yellow-600 px-1.5 py-0.5 rounded-full">Neutral</span></td><td class="text-right mono text-gray-900">55</td><td class="text-right text-gray-400">→ stable</td></tr>
+                  <tr><td class="py-2 font-medium text-gray-900 mono">GLD</td><td><span class="text-[10px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded-full">Bullish</span></td><td class="text-right mono text-gray-900">82</td><td class="text-right text-green-600">↑ rising</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Right: Activity feed -->
+          <div class="w-[340px] bg-[#f6f8fa] overflow-auto shrink-0">
+            <div class="px-5 py-4 bg-white border-b border-gray-200">
+              <div class="flex gap-4 text-xs">
+                <span class="text-[#635bff] font-medium border-b-2 border-[#635bff] pb-2">Активність</span>
+                <span class="text-gray-400 pb-2 cursor-pointer hover:text-gray-600">Рекомендації</span>
+              </div>
+            </div>
+            <div class="p-4 space-y-3">
+              <div class="bg-white rounded-md border border-gray-200 p-3">
+                <div class="flex items-center gap-2 mb-1"><span class="w-5 h-5 rounded-full bg-[#f0efff] flex items-center justify-center text-[10px]">🧠</span><span class="text-[11px] text-gray-500">Opus 4.6 · 2 хв тому</span></div>
+                <div class="text-xs text-gray-900 font-medium mb-1">Нова рекомендація: купити GLD</div>
+                <div class="text-[11px] text-gray-500">Вхід $410, ціль $480. Conviction 82. Золото як хедж проти інфляції.</div>
+                <button class="mt-2 text-[11px] text-[#635bff] font-medium hover:underline">Переглянути →</button>
+              </div>
+              <div class="bg-white rounded-md border border-gray-200 p-3">
+                <div class="flex items-center gap-2 mb-1"><span class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center text-[10px]">✓</span><span class="text-[11px] text-gray-500">Сьогодні, 14:20</span></div>
+                <div class="text-xs text-gray-900 font-medium mb-1">Куплено BND × 158</div>
+                <div class="text-[11px] text-gray-500">Ціна входу $73.11. Облігаційний ETF за рекомендацією Opus.</div>
+              </div>
+              <div class="bg-white rounded-md border border-gray-200 p-3">
+                <div class="flex items-center gap-2 mb-1"><span class="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center text-[10px]">✓</span><span class="text-[11px] text-gray-500">Сьогодні, 14:15</span></div>
+                <div class="text-xs text-gray-900 font-medium mb-1">Куплено MSFT × 70</div>
+                <div class="text-[11px] text-gray-500">Ціна входу $347.52. Conviction 78/100.</div>
+              </div>
+              <div class="bg-white rounded-md border border-gray-200 p-3">
+                <div class="flex items-center gap-2 mb-1"><span class="w-5 h-5 rounded-full bg-purple-50 flex items-center justify-center text-[10px]">📄</span><span class="text-[11px] text-gray-500">Сьогодні, 13:50</span></div>
+                <div class="text-xs text-gray-900 font-medium mb-1">Оброблено звіт: Morgan Stanley Q1</div>
+                <div class="text-[11px] text-gray-500">Витягнуто 3 активи. Opus верифікував тези за 2 хв.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2. COMMAND CENTER ===== -->
+<div id="c1" class="concept">
+  <div class="max-w-[1440px] mx-auto p-4">
+    <div class="mb-3">
+      <h2 class="text-sm font-semibold text-gray-900">2. Command Center</h2>
+      <p class="text-xs text-gray-500">Все на одному екрані: 3 колонки — Позиції, AI Рекомендації, Стрічка подій. Без табів — всі дані видно одразу.</p>
+    </div>
+    <div class="rounded-lg overflow-hidden border border-gray-200 bg-white" style="height:620px">
+      <!-- Top bar with key metrics -->
+      <div class="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-6 h-6 rounded bg-[#635bff] flex items-center justify-center text-white text-[9px] font-bold">AI</div>
+          <span class="text-sm font-semibold text-gray-900">Family Office</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="text-right"><div class="text-[10px] text-gray-400">ПОРТФЕЛЬ</div><div class="text-lg font-semibold mono text-gray-900">$100,000</div></div>
+          <div class="text-right"><div class="text-[10px] text-gray-400">P&L</div><div class="text-sm mono text-green-600 font-medium">+$115.50 (+0.32%)</div></div>
+          <div class="text-right"><div class="text-[10px] text-gray-400">КЕШ</div><div class="text-sm mono text-gray-900">$63,475 <span class="text-gray-400">(63%)</span></div></div>
+          <button class="px-3 py-1.5 bg-[#635bff] text-white text-xs rounded-md hover:bg-[#5851db]">🧠 Запитати Opus</button>
+        </div>
+      </div>
+
+      <!-- Three columns -->
+      <div class="flex h-[calc(100%-52px)]">
+        <!-- Col 1: Positions -->
+        <div class="flex-1 border-r border-gray-200 overflow-auto">
+          <div class="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-gray-900 uppercase tracking-wide">Позиції (2)</span>
+            <span class="text-[10px] text-gray-400">Вартість: $36,477</span>
+          </div>
+          <div class="p-3 space-y-2">
+            <div class="border border-gray-200 rounded-md p-3">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-2"><span class="mono text-sm font-semibold text-gray-900">MSFT</span><span class="text-[10px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded-full">Bullish · 78</span></div>
+                <span class="mono text-sm font-medium text-gray-900">$356.09</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="text-gray-500">70 шт @ $347.52</span>
+                <span class="mono text-green-600">+$299.60 (+1.22%)</span>
+              </div>
+              <div class="mt-2 w-full h-1 bg-gray-100 rounded-full"><div class="h-full bg-blue-500 rounded-full" style="width:68%"></div></div>
+              <div class="text-[10px] text-gray-400 mt-1">68.3% портфеля позицій</div>
+            </div>
+            <div class="border border-gray-200 rounded-md p-3">
+              <div class="flex items-center justify-between mb-1.5">
+                <div class="flex items-center gap-2"><span class="mono text-sm font-semibold text-gray-900">BND</span><span class="text-[10px] bg-yellow-50 text-yellow-600 px-1.5 py-0.5 rounded-full">Neutral · 55</span></div>
+                <span class="mono text-sm font-medium text-gray-900">$73.11</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="text-gray-500">158 шт @ $73.11</span>
+                <span class="mono text-gray-400">$0.00 (0%)</span>
+              </div>
+              <div class="mt-2 w-full h-1 bg-gray-100 rounded-full"><div class="h-full bg-green-500 rounded-full" style="width:32%"></div></div>
+              <div class="text-[10px] text-gray-400 mt-1">31.7% портфеля позицій</div>
+            </div>
+            <div class="border border-dashed border-gray-200 rounded-md p-3 text-center">
+              <div class="text-xs text-gray-400">Кеш: $63,474.72</div>
+              <div class="text-[10px] text-gray-300">63.5% нерозподілено</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: AI Recommendations -->
+        <div class="flex-1 border-r border-gray-200 overflow-auto">
+          <div class="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
+            <span class="text-xs font-semibold text-gray-900 uppercase tracking-wide">🧠 Рекомендації Opus</span>
+            <span class="text-[10px] bg-[#f0efff] text-[#635bff] px-1.5 py-0.5 rounded-full">Opus 4.6</span>
+          </div>
+          <div class="p-3 space-y-2">
+            <div class="bg-green-50 border border-green-200 rounded-md p-3">
+              <div class="flex items-center justify-between mb-1"><span class="text-xs font-semibold text-gray-900">Купити GLD</span><span class="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">Зараз</span></div>
+              <div class="text-[11px] text-gray-600 mb-2">Золото як хедж. RSI нейтральний, вище 200 SMA.</div>
+              <div class="grid grid-cols-3 gap-2 text-[10px]">
+                <div><span class="text-gray-400 block">Вхід</span><span class="mono text-gray-900">$410</span></div>
+                <div><span class="text-gray-400 block">Ціль</span><span class="mono text-green-600">$480</span></div>
+                <div><span class="text-gray-400 block">Стоп</span><span class="mono text-red-500">$385</span></div>
+              </div>
+              <button class="mt-2 w-full py-1.5 bg-green-600 text-white text-[11px] rounded-md hover:bg-green-700">Купити GLD (10% портфеля)</button>
+            </div>
+            <div class="bg-yellow-50 border border-yellow-200 rounded-md p-3">
+              <div class="flex items-center justify-between mb-1"><span class="text-xs font-semibold text-gray-900">Докупити MSFT</span><span class="text-[10px] bg-yellow-100 text-yellow-700 px-1.5 py-0.5 rounded-full">Чекати</span></div>
+              <div class="text-[11px] text-gray-600 mb-2">Чекати відкат до $340. Conviction 78.</div>
+              <div class="grid grid-cols-3 gap-2 text-[10px]">
+                <div><span class="text-gray-400 block">Вхід</span><span class="mono text-gray-900">$340</span></div>
+                <div><span class="text-gray-400 block">Ціль</span><span class="mono text-green-600">$420</span></div>
+                <div><span class="text-gray-400 block">Стоп</span><span class="mono text-red-500">$310</span></div>
+              </div>
+            </div>
+            <div class="border border-gray-200 rounded-md p-3">
+              <div class="flex items-center justify-between mb-1"><span class="text-xs font-semibold text-gray-900">Зменшити кеш</span><span class="text-[10px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full">Поступово</span></div>
+              <div class="text-[11px] text-gray-600">63% → 25%. Розподілити між GLD, акціями та облігаціями.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 3: Activity feed -->
+        <div class="w-[280px] overflow-auto shrink-0 bg-[#f6f8fa]">
+          <div class="px-4 py-3 border-b border-gray-100 bg-white">
+            <span class="text-xs font-semibold text-gray-900 uppercase tracking-wide">Стрічка</span>
+          </div>
+          <div class="p-3 space-y-2">
+            <div class="text-[10px] text-gray-400 uppercase tracking-wide px-1">Сьогодні</div>
+            <div class="bg-white rounded-md border border-gray-200 p-2.5">
+              <div class="text-[11px] text-gray-900 font-medium">🧠 Opus: рекомендація GLD</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">Conviction 82 · Buy · 14:30</div>
+            </div>
+            <div class="bg-white rounded-md border border-gray-200 p-2.5">
+              <div class="text-[11px] text-gray-900 font-medium">✓ Куплено BND × 158</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">$73.11 · $11,551 · 14:20</div>
+            </div>
+            <div class="bg-white rounded-md border border-gray-200 p-2.5">
+              <div class="text-[11px] text-gray-900 font-medium">✓ Куплено MSFT × 70</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">$347.52 · $24,326 · 14:15</div>
+            </div>
+            <div class="bg-white rounded-md border border-gray-200 p-2.5">
+              <div class="text-[11px] text-gray-900 font-medium">📄 Звіт: Morgan Stanley Q1</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">3 активи · Opus · 13:50</div>
+            </div>
+            <div class="text-[10px] text-gray-400 uppercase tracking-wide px-1 mt-3">Вчора</div>
+            <div class="bg-white rounded-md border border-gray-200 p-2.5">
+              <div class="text-[11px] text-gray-900 font-medium">📊 Портфель створено</div>
+              <div class="text-[10px] text-gray-500 mt-0.5">$100,000 стартовий капітал</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. ACTIVITY TIMELINE ===== -->
+<div id="c2" class="concept">
+  <div class="max-w-[1440px] mx-auto p-4">
+    <div class="mb-3">
+      <h2 class="text-sm font-semibold text-gray-900">3. Activity Timeline</h2>
+      <p class="text-xs text-gray-500">Все як стрічка подій з фільтрами: AI рекомендації, покупки, звіти, сповіщення. Портфель — компактна панель зверху. Головний фокус на AI-діях.</p>
+    </div>
+    <div class="rounded-lg overflow-hidden border border-gray-200 bg-[#f6f8fa]" style="height:620px">
+      <div class="flex h-full">
+        <!-- Sidebar -->
+        <div class="w-48 bg-white border-r border-gray-200 flex flex-col shrink-0">
+          <div class="px-4 py-3 border-b border-gray-200"><div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-[#635bff] flex items-center justify-center text-white text-[9px] font-bold">AI</div><span class="text-xs font-semibold text-gray-900">Family Office</span></div></div>
+          <nav class="flex-1 py-2 px-2 text-xs space-y-0.5">
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-[#f0efff] text-[#635bff] font-medium">📋 Стрічка</a>
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-gray-500 hover:bg-gray-50">📊 Портфель</a>
+            <a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-gray-500 hover:bg-gray-50">📄 Звіти</a>
+          </nav>
+          <!-- Portfolio summary sidebar -->
+          <div class="border-t border-gray-200 p-4 space-y-2">
+            <div class="text-[10px] text-gray-400 uppercase tracking-wide">Портфель</div>
+            <div class="mono text-sm font-semibold text-gray-900">$100,000</div>
+            <div class="mono text-xs text-green-600">+$115 (+0.12%)</div>
+            <div class="space-y-1 mt-2">
+              <div class="flex items-center justify-between text-[10px]"><span class="text-gray-500">MSFT</span><span class="mono text-green-600">+$300</span></div>
+              <div class="flex items-center justify-between text-[10px]"><span class="text-gray-500">BND</span><span class="mono text-gray-400">$0</span></div>
+              <div class="flex items-center justify-between text-[10px]"><span class="text-gray-500">Кеш</span><span class="mono text-gray-900">$63,475</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main: Timeline -->
+        <div class="flex-1 overflow-auto">
+          <!-- Filter bar -->
+          <div class="bg-white border-b border-gray-200 px-6 py-3 flex items-center gap-3">
+            <span class="text-xs bg-[#635bff] text-white px-2.5 py-1 rounded-full font-medium">Все</span>
+            <span class="text-xs text-gray-500 px-2.5 py-1 rounded-full hover:bg-gray-100 cursor-pointer">🧠 AI рішення</span>
+            <span class="text-xs text-gray-500 px-2.5 py-1 rounded-full hover:bg-gray-100 cursor-pointer">💰 Транзакції</span>
+            <span class="text-xs text-gray-500 px-2.5 py-1 rounded-full hover:bg-gray-100 cursor-pointer">📄 Звіти</span>
+            <span class="text-xs text-gray-500 px-2.5 py-1 rounded-full hover:bg-gray-100 cursor-pointer">⚠ Сповіщення</span>
+          </div>
+
+          <!-- Timeline -->
+          <div class="px-6 py-4">
+            <div class="relative pl-6 border-l-2 border-gray-200 space-y-5">
+              <!-- AI recommendation event -->
+              <div class="relative">
+                <div class="absolute -left-[25px] w-4 h-4 rounded-full bg-[#635bff] border-2 border-white"></div>
+                <div class="text-[10px] text-gray-400 mb-1">Сьогодні, 14:30 · Opus 4.6</div>
+                <div class="bg-white border border-gray-200 rounded-md p-4">
+                  <div class="text-sm font-semibold text-gray-900 mb-1">🧠 Нова рекомендація: купити GLD</div>
+                  <div class="text-xs text-gray-600 mb-3">Золото як хедж проти інфляції та геополітичної невизначеності. RSI нейтральний, ціна вище 200 SMA.</div>
+                  <div class="flex gap-4 text-[11px] mb-3">
+                    <div><span class="text-gray-400">Вхід</span> <span class="mono text-gray-900">$410</span></div>
+                    <div><span class="text-gray-400">Ціль</span> <span class="mono text-green-600">$480 (+17%)</span></div>
+                    <div><span class="text-gray-400">Стоп</span> <span class="mono text-red-500">$385</span></div>
+                    <div><span class="text-gray-400">Conviction</span> <span class="mono text-gray-900">82</span></div>
+                  </div>
+                  <div class="flex gap-2">
+                    <button class="px-3 py-1.5 bg-[#635bff] text-white text-[11px] rounded-md">Купити GLD</button>
+                    <button class="px-3 py-1.5 border border-gray-200 text-gray-600 text-[11px] rounded-md">Пропустити</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Buy event -->
+              <div class="relative">
+                <div class="absolute -left-[25px] w-4 h-4 rounded-full bg-green-500 border-2 border-white"></div>
+                <div class="text-[10px] text-gray-400 mb-1">Сьогодні, 14:20</div>
+                <div class="bg-white border border-gray-200 rounded-md p-3 flex items-center gap-3">
+                  <div class="flex-1">
+                    <div class="text-xs font-medium text-gray-900">Куплено BND × 158 @ $73.11</div>
+                    <div class="text-[11px] text-gray-500">Obligation ETF · Рекомендація Opus · $11,551</div>
+                  </div>
+                  <span class="text-[10px] bg-green-50 text-green-600 px-2 py-0.5 rounded-full">Виконано</span>
+                </div>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[25px] w-4 h-4 rounded-full bg-green-500 border-2 border-white"></div>
+                <div class="text-[10px] text-gray-400 mb-1">Сьогодні, 14:15</div>
+                <div class="bg-white border border-gray-200 rounded-md p-3 flex items-center gap-3">
+                  <div class="flex-1">
+                    <div class="text-xs font-medium text-gray-900">Куплено MSFT × 70 @ $347.52</div>
+                    <div class="text-[11px] text-gray-500">Microsoft · Conviction 78 · $24,326</div>
+                  </div>
+                  <span class="text-[10px] bg-green-50 text-green-600 px-2 py-0.5 rounded-full">Виконано</span>
+                </div>
+              </div>
+
+              <!-- Report processed -->
+              <div class="relative">
+                <div class="absolute -left-[25px] w-4 h-4 rounded-full bg-purple-500 border-2 border-white"></div>
+                <div class="text-[10px] text-gray-400 mb-1">Сьогодні, 13:50 · Opus 4.6 + Sonnet 4</div>
+                <div class="bg-white border border-gray-200 rounded-md p-3">
+                  <div class="text-xs font-medium text-gray-900 mb-1">📄 Оброблено звіт: Morgan Stanley Q1 2026</div>
+                  <div class="text-[11px] text-gray-500 mb-2">226 стор · 3 активи витягнуто · Тези верифіковано</div>
+                  <div class="flex gap-2">
+                    <span class="text-[10px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded-full">✓4 confirmed</span>
+                    <span class="text-[10px] bg-yellow-50 text-yellow-600 px-1.5 py-0.5 rounded-full">~1 weakened</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 4. BENTO GRID ===== -->
+<div id="c3" class="concept">
+  <div class="max-w-[1440px] mx-auto p-4">
+    <div class="mb-3">
+      <h2 class="text-sm font-semibold text-gray-900">4. Bento Grid</h2>
+      <p class="text-xs text-gray-500">Модульна сітка віджетів різних розмірів. Кожен блок — окремий інформаційний юніт. Немає sidebar — вся навігація через grid.</p>
+    </div>
+    <div class="rounded-lg overflow-hidden border border-gray-200 bg-[#f6f8fa] p-4" style="height:620px; overflow-y:auto">
+      <!-- Top bar -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-[#635bff] flex items-center justify-center text-white text-[9px] font-bold">AI</div><span class="text-sm font-semibold text-gray-900">AI Family Office</span></div>
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-gray-400">28 Бер 2026, 15:42</span>
+          <button class="px-3 py-1.5 bg-[#635bff] text-white text-xs rounded-md">🧠 Запитати Opus</button>
+        </div>
+      </div>
+
+      <!-- Bento grid -->
+      <div class="grid grid-cols-4 gap-3" style="grid-auto-rows: minmax(0, 1fr)">
+        <!-- Big: Portfolio value -->
+        <div class="col-span-2 bg-white rounded-lg border border-gray-200 p-5">
+          <div class="text-[10px] text-gray-400 uppercase tracking-wide">Загальна вартість</div>
+          <div class="text-3xl font-semibold mono text-gray-900 mt-1">$100,000.00</div>
+          <div class="text-xs mono text-green-600 mt-1">+$115.50 (+0.12%) сьогодні</div>
+          <div class="flex gap-4 mt-4 text-xs">
+            <div class="flex-1 bg-[#f6f8fa] rounded-md p-2.5"><div class="text-gray-400 text-[10px]">Інвестовано</div><div class="mono font-medium text-gray-900 mt-0.5">$36,526</div></div>
+            <div class="flex-1 bg-[#f6f8fa] rounded-md p-2.5"><div class="text-gray-400 text-[10px]">Кеш</div><div class="mono font-medium text-gray-900 mt-0.5">$63,475</div></div>
+            <div class="flex-1 bg-[#f6f8fa] rounded-md p-2.5"><div class="text-gray-400 text-[10px]">Позицій</div><div class="mono font-medium text-gray-900 mt-0.5">2</div></div>
+          </div>
+        </div>
+
+        <!-- AI Status -->
+        <div class="col-span-2 bg-[#635bff] rounded-lg p-5 text-white">
+          <div class="flex items-center justify-between mb-3">
+            <div class="text-[10px] uppercase tracking-wide opacity-70">AI Радник</div>
+            <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full">Opus 4.6</span>
+          </div>
+          <div class="text-sm font-medium mb-2">Ринок стабільний. Рекомендую розподілити кеш.</div>
+          <div class="text-xs opacity-80 mb-3">63% в кеші — забагато. Розгляньте GLD (conviction 82) та поступовий вхід у MSFT на відкаті.</div>
+          <div class="flex gap-2">
+            <button class="px-3 py-1.5 bg-white text-[#635bff] text-[11px] rounded-md font-medium">Переглянути деталі</button>
+            <button class="px-3 py-1.5 bg-white/20 text-white text-[11px] rounded-md">Оновити аналіз</button>
+          </div>
+        </div>
+
+        <!-- Positions -->
+        <div class="col-span-2 row-span-2 bg-white rounded-lg border border-gray-200 p-4">
+          <div class="text-xs font-semibold text-gray-900 mb-3">Позиції</div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 p-2.5 bg-[#f6f8fa] rounded-md">
+              <div class="w-8 h-8 rounded-md bg-blue-50 flex items-center justify-center text-blue-600 text-xs font-bold shrink-0">MS</div>
+              <div class="flex-1"><div class="text-xs font-medium text-gray-900">MSFT</div><div class="text-[10px] text-gray-500">70 × $347.52</div></div>
+              <div class="text-right"><div class="text-xs mono text-gray-900">$24,926</div><div class="text-[10px] mono text-green-600">+$300</div></div>
+            </div>
+            <div class="flex items-center gap-3 p-2.5 bg-[#f6f8fa] rounded-md">
+              <div class="w-8 h-8 rounded-md bg-green-50 flex items-center justify-center text-green-600 text-xs font-bold shrink-0">BN</div>
+              <div class="flex-1"><div class="text-xs font-medium text-gray-900">BND</div><div class="text-[10px] text-gray-500">158 × $73.11</div></div>
+              <div class="text-right"><div class="text-xs mono text-gray-900">$11,551</div><div class="text-[10px] mono text-gray-400">$0</div></div>
+            </div>
+          </div>
+          <!-- Allocation bar -->
+          <div class="mt-3">
+            <div class="text-[10px] text-gray-400 mb-1">Розподіл</div>
+            <div class="flex h-2 rounded-full overflow-hidden">
+              <div class="bg-blue-500" style="width:25%"></div>
+              <div class="bg-green-500" style="width:12%"></div>
+              <div class="bg-gray-200" style="width:63%"></div>
+            </div>
+            <div class="flex justify-between mt-1 text-[10px] text-gray-400">
+              <span>MSFT 25%</span><span>BND 12%</span><span>Кеш 63%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conviction scores -->
+        <div class="bg-white rounded-lg border border-gray-200 p-4">
+          <div class="text-xs font-semibold text-gray-900 mb-3">Conviction</div>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between"><span class="text-xs text-gray-900 mono">GLD</span><div class="flex items-center gap-1.5"><div class="w-12 h-1.5 bg-gray-100 rounded-full"><div class="h-full bg-green-500 rounded-full" style="width:82%"></div></div><span class="text-[10px] mono text-green-600">82</span></div></div>
+            <div class="flex items-center justify-between"><span class="text-xs text-gray-900 mono">MSFT</span><div class="flex items-center gap-1.5"><div class="w-12 h-1.5 bg-gray-100 rounded-full"><div class="h-full bg-green-500 rounded-full" style="width:78%"></div></div><span class="text-[10px] mono text-green-600">78</span></div></div>
+            <div class="flex items-center justify-between"><span class="text-xs text-gray-900 mono">BND</span><div class="flex items-center gap-1.5"><div class="w-12 h-1.5 bg-gray-100 rounded-full"><div class="h-full bg-yellow-500 rounded-full" style="width:55%"></div></div><span class="text-[10px] mono text-yellow-600">55</span></div></div>
+          </div>
+        </div>
+
+        <!-- Recent report -->
+        <div class="bg-white rounded-lg border border-gray-200 p-4">
+          <div class="text-xs font-semibold text-gray-900 mb-2">Останній звіт</div>
+          <div class="text-[11px] text-gray-600 mb-1">Morgan Stanley Q1</div>
+          <div class="text-[10px] text-gray-400">226 стор · 3 активи</div>
+          <div class="flex gap-1 mt-2">
+            <span class="text-[9px] bg-green-50 text-green-600 px-1.5 py-0.5 rounded-full">✓4</span>
+            <span class="text-[9px] bg-yellow-50 text-yellow-600 px-1.5 py-0.5 rounded-full">~1</span>
+          </div>
+          <button class="mt-2 text-[10px] text-[#635bff] font-medium">Деталі →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5. AI-FIRST CHAT ===== -->
+<div id="c4" class="concept">
+  <div class="max-w-[1440px] mx-auto p-4">
+    <div class="mb-3">
+      <h2 class="text-sm font-semibold text-gray-900">5. AI-First Chat</h2>
+      <p class="text-xs text-gray-500">AI радник як головний інтерфейс (як ChatGPT). Портфель та дані — компактна панель справа. Основна взаємодія через чат з Opus.</p>
+    </div>
+    <div class="rounded-lg overflow-hidden border border-gray-200 bg-white" style="height:620px">
+      <div class="flex h-full">
+        <!-- Chat area -->
+        <div class="flex-1 flex flex-col">
+          <!-- Chat header -->
+          <div class="px-6 py-3 border-b border-gray-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full bg-[#635bff] flex items-center justify-center text-white text-xs">🧠</div>
+              <div><div class="text-sm font-semibold text-gray-900">Opus Advisor</div><div class="text-[10px] text-green-500">Online · claude-opus-4-20250514</div></div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] text-gray-400">Останній аналіз: 5 хв тому</span>
+              <button class="px-2.5 py-1 border border-gray-200 text-gray-600 text-xs rounded-md hover:bg-gray-50">Оновити</button>
+            </div>
+          </div>
+
+          <!-- Chat messages -->
+          <div class="flex-1 overflow-auto p-6 space-y-4 bg-[#f6f8fa]">
+            <!-- AI message -->
+            <div class="flex gap-3 max-w-2xl">
+              <div class="w-7 h-7 rounded-full bg-[#635bff] flex items-center justify-center text-white text-xs shrink-0">🧠</div>
+              <div class="bg-white border border-gray-200 rounded-lg rounded-tl-none p-4 flex-1">
+                <div class="text-xs text-gray-900 leading-relaxed">
+                  <p class="mb-2">Вітаю! Ваш портфель виглядає добре. Ось мої спостереження:</p>
+                  <p class="mb-2"><strong>Ринок:</strong> S&P 500 торгується біля історичних максимумів. Волатильність низька (VIX 14). Інфляція стабілізується.</p>
+                  <p class="mb-2"><strong>Головна проблема:</strong> 63% в кеші — забагато для довгострокового портфеля. Рекомендую поступово розподілити.</p>
+                </div>
+                <!-- Inline recommendation cards -->
+                <div class="mt-3 space-y-2">
+                  <div class="bg-green-50 border border-green-200 rounded-md p-3">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-xs font-semibold text-gray-900">Купити GLD — 10% портфеля</span>
+                      <span class="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">Зараз</span>
+                    </div>
+                    <div class="text-[11px] text-gray-600">Вхід $410 → ціль $480. Золото як хедж. Conv. 82.</div>
+                    <button class="mt-2 px-3 py-1 bg-green-600 text-white text-[11px] rounded-md">Купити GLD</button>
+                  </div>
+                  <div class="bg-yellow-50 border border-yellow-200 rounded-md p-3">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-xs font-semibold text-gray-900">Докупити MSFT — чекати $340</span>
+                      <span class="text-[10px] bg-yellow-100 text-yellow-700 px-1.5 py-0.5 rounded-full">Чекати</span>
+                    </div>
+                    <div class="text-[11px] text-gray-600">Не докуповувати за поточною ціною. Чекати відкат.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- User message -->
+            <div class="flex gap-3 max-w-2xl ml-auto flex-row-reverse">
+              <div class="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-xs shrink-0">👤</div>
+              <div class="bg-[#635bff] text-white rounded-lg rounded-tr-none p-3">
+                <div class="text-xs">Що думаєш про NVDA? Варто додати в портфель?</div>
+              </div>
+            </div>
+
+            <!-- AI response -->
+            <div class="flex gap-3 max-w-2xl">
+              <div class="w-7 h-7 rounded-full bg-[#635bff] flex items-center justify-center text-white text-xs shrink-0">🧠</div>
+              <div class="bg-white border border-gray-200 rounded-lg rounded-tl-none p-4 flex-1">
+                <div class="text-xs text-gray-900 leading-relaxed">
+                  <p class="mb-2">NVDA цікава, але зараз не найкращий момент:</p>
+                  <p class="mb-2">• <strong>Плюси:</strong> AI лідер, revenue зростає 40%+ YoY, монополія на GPU<br>• <strong>Мінуси:</strong> P/E 65x, RSI 72 (перекуплена), весь AI хайп вже в ціні</p>
+                  <p>Моя рекомендація: <strong>поставити на watch-лист</strong>. Чекати корекцію до $800-850 для входу. Conviction поки 45/100.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input -->
+          <div class="px-6 py-3 border-t border-gray-200 bg-white">
+            <div class="flex gap-2">
+              <div class="flex-1 flex items-center bg-[#f6f8fa] border border-gray-200 rounded-lg px-3 py-2">
+                <input type="text" placeholder="Запитайте Opus про портфель, активи або стратегію..." class="flex-1 bg-transparent text-xs text-gray-900 outline-none placeholder-gray-400">
+                <button class="ml-2 px-2 py-1 text-[10px] text-gray-400 border border-gray-200 rounded">📎 Звіт</button>
+              </div>
+              <button class="px-4 py-2 bg-[#635bff] text-white text-xs rounded-lg">Надіслати</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right panel: Portfolio context -->
+        <div class="w-[280px] border-l border-gray-200 overflow-auto bg-white shrink-0">
+          <div class="px-4 py-3 border-b border-gray-200">
+            <div class="text-xs font-semibold text-gray-900">Портфель</div>
+          </div>
+          <div class="p-4 space-y-4">
+            <!-- Value -->
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-wide">Вартість</div>
+              <div class="text-xl mono font-semibold text-gray-900">$100,000</div>
+              <div class="text-xs mono text-green-600">+$115 (+0.12%)</div>
+            </div>
+
+            <!-- Positions -->
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-wide mb-2">Позиції</div>
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2"><div class="w-5 h-5 rounded bg-blue-50 flex items-center justify-center text-blue-600 text-[9px] font-bold">M</div><span class="text-xs text-gray-900 mono">MSFT</span></div>
+                  <div class="text-right"><div class="text-xs mono text-gray-900">$24,926</div><div class="text-[10px] mono text-green-600">+1.2%</div></div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2"><div class="w-5 h-5 rounded bg-green-50 flex items-center justify-center text-green-600 text-[9px] font-bold">B</div><span class="text-xs text-gray-900 mono">BND</span></div>
+                  <div class="text-right"><div class="text-xs mono text-gray-900">$11,551</div><div class="text-[10px] mono text-gray-400">0%</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Allocation pie -->
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-wide mb-2">Розподіл</div>
+              <div class="flex h-1.5 rounded-full overflow-hidden mb-1.5">
+                <div class="bg-blue-500" style="width:25%"></div>
+                <div class="bg-green-500" style="width:12%"></div>
+                <div class="bg-gray-200" style="width:63%"></div>
+              </div>
+              <div class="flex justify-between text-[10px] text-gray-400"><span>MSFT 25%</span><span>BND 12%</span><span>Кеш 63%</span></div>
+            </div>
+
+            <!-- Conviction -->
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-wide mb-2">Conviction Map</div>
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-[11px]"><span class="text-gray-900 mono">GLD</span><span class="text-green-600 mono">82</span></div>
+                <div class="flex items-center justify-between text-[11px]"><span class="text-gray-900 mono">MSFT</span><span class="text-green-600 mono">78</span></div>
+                <div class="flex items-center justify-between text-[11px]"><span class="text-gray-900 mono">BND</span><span class="text-yellow-600 mono">55</span></div>
+              </div>
+            </div>
+
+            <!-- Reports -->
+            <div>
+              <div class="text-[10px] text-gray-400 uppercase tracking-wide mb-2">Звіти</div>
+              <div class="text-[11px] text-gray-600">Morgan Stanley Q1 2026</div>
+              <div class="text-[10px] text-gray-400">3 активи · Opus verified</div>
+              <button class="mt-1 text-[10px] text-[#635bff]">Завантажити ще →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(i) {
+  document.querySelectorAll('.concept').forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx === i);
+  });
+}
+</script>
+</body>
+</html>
